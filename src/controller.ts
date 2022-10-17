@@ -46,10 +46,9 @@ const getUser = async (req, res) => {
 
 const getAllUsers = async (req, res) => {
   try {
-    const user = await AppDataSource.getRepository(User).find();
     res.json({
       status: "success",
-      data: user,
+      data: res.paginatedResults,
     });
   } catch (err) {
     res.status(400).json({
